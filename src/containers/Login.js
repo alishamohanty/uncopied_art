@@ -7,6 +7,7 @@ import { useFormFields } from "../libs/hooksLib";
 import { useHistory } from "react-router-dom";
 import { onError } from "../libs/errorLib";
 
+import { notifySuccess, notifyError, notifyInfo, notifyWarning } from './Notifications';
 
 import embossing from "../embossing.svg";
 import axios from "axios";
@@ -38,14 +39,14 @@ export default function Login() {
 		axios.post(url, data, headers).then(response => {
 			if(response.status === 200)
 			{
-				notify({"title":"Successfully Logged In", "type":"success"})
+				notifySuccess("Login Successfull");
 				localStorage.setItem('jwtoken', response.data.token);
 				userHasAuthenticated(true)
 				history.push("/")
 			}
 			setIsLoading(false)
 		}).catch(error => {
-			notify({"title":"Logged In failed", "type":"danger"})
+			notifyError("Logged in failed");
 			onError(error)
 			setIsLoading(false)
 			userHasAuthenticated(false)

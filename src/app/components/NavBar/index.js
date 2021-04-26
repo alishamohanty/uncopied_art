@@ -15,21 +15,9 @@ export default function NavBar({isAuthenticated, handleLogout ,t}){
 			</LinkContainer>
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
-      {/* <Nav className="Nav-section">
-        <Nav.Link className="Nav-link">{t('navbar.link')+'1'}</Nav.Link>
-        <Nav.Link className="Nav-link">{t('navbar.link')+'2'}</Nav.Link>
-        <Nav.Link className="Nav-link">{t('navbar.link')+'3'}</Nav.Link>
-        <Nav.Link className="Nav-link">{t('navbar.link')+'4'}</Nav.Link>
-      </Nav> */}
         <Nav activeKey={window.location.pathname}>
           {isAuthenticated ? (
             <>
-            {/* <LinkContainer to="">
-              <Nav.Link> Collections </Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="">
-              <Nav.Link> Artworks </Nav.Link>
-            </LinkContainer> */}
             <Button className="Nav-but" onClick={handleLogout}>{t('navbar.logout')}</Button>
             </>
           ) : (

@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import { BsArrowRepeat } from "react-icons/bs";
-import styled, { keyframes } from 'styled-components/macro';
+import "./style.css";
 
 export default function LoaderButton({
   isLoading,
@@ -10,34 +10,13 @@ export default function LoaderButton({
   ...props
 }) {
   return (
-    <ButtonComponent
+    <Button
       disabled={disabled || isLoading}
       className={`LoaderButton ${className}`}
       {...props}
     >
-      {isLoading && <Spinning />}
+      {isLoading && <BsArrowRepeat className="spinning" />}
       {props.children}
-    </ButtonComponent>
+    </Button>
   );
 }
-
-const ButtonComponent = styled(Button)`
-  margin-right: 7px;
-  top: 2px;
-  animation: spin 1s infinite linear;
-`;
-
-const spin = keyframes`
-  from {
-    transform: scale(1) rotate(0deg);
-  }
-  to {
-    transform: scale(1) rotate(360deg);
-  }
-`;
-
-const Spinning = styled(BsArrowRepeat)`
-  margin-right: 7px;
-  top: 2px;
-  animation: ${spin} 1s infinite linear;
-`;

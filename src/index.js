@@ -5,6 +5,8 @@ import reportWebVitals from './reportWebVitals';
 import {GlobalStyle} from '../src/styles/global-styles'
 import ReactNotification from 'react-notifications-component'
 import { BrowserRouter as Router } from 'react-router-dom';
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications';
 
 import './i18n';
 
@@ -14,6 +16,7 @@ ReactDOM.render(
       <ReactNotification />
       <App />
       <GlobalStyle/>
+      <NotificationContainer />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

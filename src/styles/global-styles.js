@@ -516,4 +516,13 @@ div form button.btn {
   }
 }
 
+/* notifiaction */
+
+.notification-container {
+  bottom: 0;
+  left: 0;
+  top: auto;
+  margin: 20px;
+}
+
 `;
